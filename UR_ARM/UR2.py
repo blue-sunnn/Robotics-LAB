@@ -1,6 +1,5 @@
 import socket
 import time
-import binascii
 
 ip = '10.10.0.61'  # replace by the IP address of the UR robot
 g_port = 63352  # PORT used by robotiq gripper
@@ -45,6 +44,10 @@ def main():
         b'movel(p[-0.18721, -0.37783, 0.03977, 0.415, -3.114, 0], 1.2, 0.4, 0, 0)\n')
     time.sleep(2)
 
+    r.send(
+        b'movel(p[-0.18721, -0.37783, 0.00077, 0.415, -3.114, 0], 1.2, 0.4, 0, 0)\n')
+    time.sleep(2)
+
     # Close the gripper
     g.send(b'SET POS 150\n')
     g_recv = str(g.recv(255), 'UTF-8')
@@ -63,7 +66,7 @@ def main():
 
     # Move down Z-axis with the object
     r.send(
-        b'movel(p[-0.01220, -0.26895, 0.04004, 0.415, -3.114, 0], 1.2, 0.4, 0, 0)\n')
+        b'movel(p[-0.01220, -0.26895, 0.00077, 0.415, -3.114, 0], 1.2, 0.4, 0, 0)\n')
     time.sleep(2)
 
     # Open the gripper
@@ -90,7 +93,7 @@ def main():
 
     # Move down Z-axis with the object
     r.send(
-        b'movel(p[-0.18721, -0.37783, 0.03977, 0.415, -3.114, 0], 1.2, 0.4, 0, 0)\n')
+        b'movel(p[-0.18721, -0.37783, 0.00077, 0.415, -3.114, 0], 1.2, 0.4, 0, 0)\n')
     time.sleep(2)
 
     # Open the gripper
